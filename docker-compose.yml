@@ -1,0 +1,24 @@
+services:
+  app1:
+    build: 
+      context: ./App1
+    image: jasmeet235/app1
+    container_name: app1
+    ports:
+      - 6000:6000
+    volumes:
+      - ./:/app/data
+    networks:
+      - net1
+  app:
+    build:
+      context: ./App2 
+    image: jasmeet235/app2
+    container_name: app2
+    volumes:
+      - ./:/app/data
+    networks:
+      - net1 
+
+networks:
+  net1:
